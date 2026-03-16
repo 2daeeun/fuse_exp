@@ -1,0 +1,25 @@
+create: (g=0): rw=read, bs=(R) 4096B-4096B, (W) 4096B-4096B, (T) 4096B-4096B, ioengine=filecreate, iodepth=1
+...
+fio-3.41
+Starting 3 threads
+
+create: (groupid=0, jobs=3): err= 0: pid=274275: Fri Mar 13 22:10:28 2026
+  read: IOPS=5977, BW=23.3MiB/s (24.5MB/s)(93.8MiB/4015msec)
+    clat (usec): min=35, max=43259, avg=59.95, stdev=423.11
+    clat percentiles (usec):
+     |  1.00th=[   42],  5.00th=[   43], 10.00th=[   44], 20.00th=[   45],
+     | 30.00th=[   46], 40.00th=[   47], 50.00th=[   48], 60.00th=[   50],
+     | 70.00th=[   57], 80.00th=[   65], 90.00th=[   79], 95.00th=[   91],
+     | 99.00th=[  119], 99.50th=[  131], 99.90th=[  178], 99.95th=[  375],
+     | 99.99th=[24249]
+   bw (  KiB/s): min=11377, max=58088, per=100.00%, avg=24215.83, stdev=5150.24, samples=22
+   iops        : min= 2844, max=14522, avg=6053.92, stdev=1287.57, samples=22
+  cpu          : usr=74.90%, sys=5.36%, ctx=102166, majf=0, minf=0
+  IO depths    : 1=100.0%, 2=0.0%, 4=0.0%, 8=0.0%, 16=0.0%, 32=0.0%, >=64=0.0%
+     submit    : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     complete  : 0=0.0%, 4=100.0%, 8=0.0%, 16=0.0%, 32=0.0%, 64=0.0%, >=64=0.0%
+     issued rwts: total=24000,0,0,0 short=0,0,0,0 dropped=0,0,0,0
+     latency   : target=0, window=0, percentile=100.00%, depth=1
+
+Run status group 0 (all jobs):
+   READ: bw=23.3MiB/s (24.5MB/s), 23.3MiB/s-23.3MiB/s (24.5MB/s-24.5MB/s), io=93.8MiB (98.3MB), run=4015-4015msec
