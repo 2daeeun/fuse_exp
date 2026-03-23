@@ -42,18 +42,17 @@ DEFAULT_SELECTOR="both"
 
 # 코어 목록
 RUNS=(
-  1 4
   # 1 2 4 8 12 16 20 24 28 32 36 40 44 48 52 56 60 64
-  # 1 2 3 4 5 6 7 8
-  # 9 10 11 12 13 14 15 16
-  # 17 18 19 20 21 22 23 24
-  # 25 26 27 28 29 30 31 32
-  # # 33 34 35 36 37 38 39 40
-  # # 41 42 43 44 45 46 47 48
-  # # 49 50 51 52 53 54 55 56
-  # # 57 58 59 60 61 62 63 64
-  # #
-  # 36 40 44 48 52 56 60 64
+  1 2 3 4 5 6 7 8
+  9 10 11 12 13 14 15 16
+  17 18 19 20 21 22 23 24
+  25 26 27 28 29 30 31 32
+  # 33 34 35 36 37 38 39 40
+  # 41 42 43 44 45 46 47 48
+  # 49 50 51 52 53 54 55 56
+  # 57 58 59 60 61 62 63 64
+  #
+  36 40 44 48 52 56 60 64
 )
 
 ###############################################################################
@@ -312,7 +311,7 @@ prepare_plainfs_mount_root() {
 }
 
 initial_prepare_mounts() {
-  echo
+  echo -e "\n\n\n\n\n\n\n\n\n\n"
   echo "============================================================"
   echo "[mount] 초기 준비 시작"
   echo "[mount] /mnt/fuse 와 /mnt/nvme0n1p1 를 먼저 ext4로 재포맷합니다"
@@ -380,7 +379,7 @@ build_fuse_cmd() {
       prlimit --nofile=524288:524288 --
       "$FUSE_BIN"
       --foreground
-      --debug-fuse
+      # --debug-fuse
       --nopassthrough
       --clone-fd
       --num-threads="$cores"
@@ -394,7 +393,7 @@ build_fuse_cmd() {
       prlimit --nofile=524288:524288 --
       "$FUSE_BIN"
       --foreground
-      --debug-fuse
+      # --debug-fuse
       --nopassthrough
       -o allow_other
       -o io_uring
@@ -664,7 +663,7 @@ for rep in $(seq 1 "$REPEAT_COUNT"); do
       backend="${exp%%:*}"
       value="${exp##*:}"
 
-      echo
+      echo -e "\n\n\n\n\n\n\n\n\n\n"
       echo "############################################################"
       echo "# [mount] 준비: backend=$backend value=$value cores=$cores rep=$rep"
       echo "############################################################"
@@ -691,5 +690,5 @@ done
 
 write_done
 
-echo
+echo -e "\n\n\n\n\n\n\n\n\n\n"
 echo "[mount] 모든 실험 완료"
